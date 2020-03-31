@@ -302,6 +302,16 @@ iframe {
 }
 
 
+.page-logo{
+  width: 100%;
+  display: block;
+  font-family: Sukhumvit-Medium;
+  font-size: 30px;
+  color: #333333;
+  line-height: 1.2;
+  text-align: left;
+}
+
 
 /*------------------------------------------------------------------
 [ Input ]*/
