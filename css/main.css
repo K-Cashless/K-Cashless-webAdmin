@@ -906,6 +906,74 @@ tbody tr:hover {
 .column7_std {
   width: 222px;
 }
+/*//////////////////////////////////////////////////////////////////
+[ Table Merchant]*/
+
+
+.column1_merc {
+  width: 110px;
+  padding-left: 40px;
+}
+
+.column2_merc {
+  width: 300px;
+  padding-left: 20px;
+
+}
+
+.column3_merc {
+  width: 110px;
+}
+
+.column4_merc {
+  width: 110px;
+}
+
+.column5_merc {
+  width: 110px;
+  padding-right: 20px;
+}
+
+.column6_merc {
+  width: 100px;
+  padding-right: 20px;
+  text-align: left;
+
+}
+/*//////////////////////////////////////////////////////////////////
+[ Table Request Merchant]*/
+
+
+.column1_req {
+  width: 110px;
+  padding-left: 40px;
+}
+
+.column2_req {
+  width: 300px;
+  padding-left: 20px;
+
+}
+
+.column4_req {
+  width: 110px;
+}
+
+.column3_req {
+  width: 110px;
+}
+
+.column5_req {
+  width: 110px;
+  padding-right: 20px;
+}
+
+.column6_req {
+  width: 100px;
+  padding-right: 20px;
+  text-align: left;
+
+}
 
 
 
