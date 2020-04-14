@@ -1,7 +1,5 @@
-
 (function ($) {
     "use strict";
-
 
     /*==================================================================
     [ Focus Contact2 ]*/
@@ -22,16 +20,13 @@
     var input = $('.validate-input .input100');
 
     $('.validate-form').on('submit',function(){
-        var check = true;
+        import axios from 'axios';
 
-        for(var i=0; i<input.length; i++) {
-            if(validate(input[i]) == false){
-                showValidate(input[i]);
-                check=false;
-            }
-        }
-
-        return check;
+        var info = {email:document.getElementById("email").value,password:document.getElementById("pass").value};
+        console.log(info);
+        axios.post('https://asia-east2-k-cash-less.cloudfunctions.net/api/login',info)
+        .catch(error => alert(error));
+        return false;
     });
 
 
