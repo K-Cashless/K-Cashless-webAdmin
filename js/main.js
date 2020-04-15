@@ -20,12 +20,7 @@
     var input = $('.validate-input .input100');
 
     $('.validate-form').on('submit',function(){
-        import axios from 'axios';
 
-        var info = {email:document.getElementById("email").value,password:document.getElementById("pass").value};
-        console.log(info);
-        axios.post('https://asia-east2-k-cash-less.cloudfunctions.net/api/login',info)
-        .catch(error => alert(error));
         return false;
     });
 
