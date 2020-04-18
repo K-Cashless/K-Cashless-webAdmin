@@ -24,9 +24,10 @@
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">    
 <!--===============================================================================================-->
-<!-- Navigation bar-->
+
+<!-- CSS Navigation bar-->
 	<link rel="stylesheet" href="css/styles.css">
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 	<script src="../cssmenu/script.js"></script>
@@ -34,7 +35,8 @@
 
 </head>
 <body style="background-color: #666666;">
-	<!--  Navigation bar -->
+
+<!--  Navigation bar -->
 	<div id='cssmenu'>
 		<ul>
 		   <li><a href='main.html'>Home</a></li>
@@ -45,52 +47,43 @@
 		   <li><a href='index.html'>Logout</a></li>
 		</ul>
 		</div>
-	
 	<!--  //Navigation bar -->
-
 
 	<div class="limiter">
 		<div class="container-table100">
-			<div class="wrap-table100">
+			<div class="wrap-tableUser">
 				<div class="table100">
-					<span class="page-title p-b-43">
+					<span class="page-title p-b-43" onclick="merchantTable()">
 						Merchant Information
 					</span>
 					<table>
 						<thead>
-							<tr class="table100-head">
-								<th class="column1_merc">Merchant ID</th>
-								<th class="column2_merc">Name</th>
-								<th class="column3_merc">Balance</th>
-								<th class="column4_merc">Telephone No.</th>
-								<th class="column5_merc">Type</th>
-								
+							<tr class="table100-head" >
+								<th class="column1_std">User ID</th>
+								<th class="column2_std">Handle</th>
+								<th class="column3_std">Email</th>
+								<th class="column4_std">FirstName</th>
+								<th class="column5_std">LastName</th>
+								<th class="column6_std">Telephone no.</th>
+                                <th class="column7_std">Balance</th>
+                                <th class="column8_std">Point</th>
+                                <th class="column9_std">CreatedAt</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody id="merchantTableClick">
+							<!--
 							<tr>
-								<td class="column1_merc">M0001</td>
-								<td class="column2_merc">Merchant 001</td>
-								<td class="column3_merc">1234</td>
-								<td class="column4_merc">0812345678</td>
-								<td class="column5_merc">333 (Merchant)</td>
+								<td class="column1_std">99999999</td>
+								<td class="column2_std">99999999</td>
+								<td class="column3_std">99999999@kmitl.ac.th</td>
+								<td class="column4_std">Kittinat</td>
+								<td class="column5_std">Aeamthanakul</td>
+								<td class="column6_std">0899999999</td>
+								<td class="column7_std">9999</td>
+								<td class="column8_std">9999</td>
+								<td class="column9_std">2020-04-17T06:40:14.633Z</td>
 							</tr>
-							<tr>
-								<td class="column1_merc">M0002</td>
-								<td class="column2_merc">Merchant 002</td>
-								<td class="column3_merc">10000</td>
-								<td class="column4_merc">0876543210</td>
-								<td class="column5_merc">333 (Merchant)</td>
-							</tr>
-							<tr>
-								<td class="column1_merc">M0003</td>
-								<td class="column2_merc">Merchant 003</td>
-								<td class="column3_merc">8520</td>
-								<td class="column4_merc">0987654321</td>
-								<td class="column5_merc">333 (Merchant)</td>
-							</tr>
-								
-								
+							-->	
 						</tbody>
 					</table>
 				</div>
@@ -98,8 +91,6 @@
 		</div>
 	</div>
 
-
-    
 <!--===============================================================================================-->
 <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -115,6 +106,9 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/table.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+
 </body>
 </html>

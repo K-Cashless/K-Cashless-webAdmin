@@ -1,5 +1,5 @@
 function loginFunc() {
-    document.getElementById("info").innerHTML = "YOU CLICKED ME!";
+    document.getElementById("info").innerHTML = "Please Wait...";
 
     var info = {email:document.getElementById("email").value,password:document.getElementById("pass").value};
     console.log(info);

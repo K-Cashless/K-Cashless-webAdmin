@@ -24,9 +24,10 @@
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">    
 <!--===============================================================================================-->
-<!-- Navigation bar-->
+
+<!-- CSS Navigation bar-->
 	<link rel="stylesheet" href="css/styles.css">
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 	<script src="../cssmenu/script.js"></script>
@@ -34,7 +35,8 @@
 
 </head>
 <body style="background-color: #666666;">
-	<!--  Navigation bar -->
+
+<!--  Navigation bar -->
 	<div id='cssmenu'>
 		<ul>
 		   <li><a href='main.html'>Home</a></li>
@@ -45,14 +47,13 @@
 		   <li><a href='index.html'>Logout</a></li>
 		</ul>
 		</div>
-	
 	<!--  //Navigation bar -->
 
 	<div class="limiter">
 		<div class="container-table100">
-			<div class="wrap-table100">
+			<div class="wrap-tableUser">
 				<div class="table100">
-					<span class="page-title p-b-43">
+					<span class="page-title p-b-43" onclick="transTable()">
 						Transaction
 					</span>
 					<table>
@@ -67,7 +68,8 @@
 								
 							</tr>
 						</thead>
-						<tbody>
+						<tbody id="transTableClick">
+							<!--						
 								<tr>
 									<td class="column1">2017-09-29 18:22</td>
 									<td class="column2">900002</td>
@@ -180,7 +182,7 @@
 									<td class="column5">$999.00</td>
 									<td class="column6">222</td>
 								</tr>
-								
+							-->
 						</tbody>
 					</table>
 				</div>
@@ -188,8 +190,6 @@
 		</div>
 	</div>
 
-
-    
 <!--===============================================================================================-->
 <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -205,6 +205,9 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/table.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+
 </body>
 </html>
