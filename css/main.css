@@ -930,7 +930,7 @@ tbody tr:hover {
   tbody tr {
     font-size: 14px;
   }
-}
+} 
 
 @media (max-width: 576px) {
   .container-table100 {

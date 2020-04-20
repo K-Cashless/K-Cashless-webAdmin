@@ -23,30 +23,32 @@ function userTable() {
 }
 
 function merchantTable(){
-    import { tempToken } from './login.js'
     var HTML = "<tr>";
     var str;
-
-    axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/getMerchantData".GET_USER_DATA,{'headers':{'Authorization':'Bearer' + tempToken}})
+    console.log(tempToken);
+    axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/getAllMerchantData")
+    //axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/getMerchantData",{'headers':{'Authorization':'Bearer ' + tempToken}})
     .then ((res => {
         str = res.data;
         console.log(str); 
         for(i=0;i<str.length;i++){
             HTML += "<td class=\"column1_std\">"+str[i].userId+"</td>";
-            HTML += "<td class=\"column2_std\">"+str[i].total+"</td>";
-            /*
-            HTML += "<td class=\"column3_std\">"+str[i]+"</td>";
-            HTML += "<td class=\"column4_std\">"+str[i]+"</td>";
-            HTML += "<td class=\"column5_std\">"+str[i]+"</td>";
-            HTML += "<td class=\"column6_std\">"+str[i]+"</td>";
-            HTML += "<td class=\"column7_std\">"+str[i]+"</td>";
-            HTML += "<td class=\"column8_std\">"+str[i]+"</td>";
-            HTML += "<td class=\"column9_std\">"+str[i]+"</td>";*/
+            HTML += "<td class=\"column2_std\">"+str[i].handle+"</td>";
+            HTML += "<td class=\"column3_std\">"+str[i].email+"</td>";
+            HTML += "<td class=\"column4_std\">"+str[i].storeName+"</td>";
+            HTML += "<td class=\"column5_std\">"+str[i].ownerName+"</td>";
+            HTML += "<td class=\"column6_std\">"+str[i].phone+"</td>";
+            HTML += "<td class=\"column7_std\">"+str[i].total+"</td>";
+            HTML += "<td class=\"column8_std\"> <a href = \""+str[i].imageUrl+"\">"+str[i].imageUrl+"</td>";
+            HTML += "<td class=\"column9_std\">"+str[i].createdAt+"</td>";
             HTML += "</tr>";
         }
         document.getElementById("merchantTableClick").innerHTML = HTML;
     }))
-    .catch(error => alert(error));
+    .catch(error => {
+        alert(error);
+        console.log(error.response.data);
+    });
 }
 
 function requestTable(){
