@@ -6,6 +6,7 @@ function loginFunc() {
     axios.post('https://asia-east2-k-cash-less.cloudfunctions.net/api/login',info)
         .then(res => {
             tempToken = res.data.token;
+            localStorage.setItem("token",tempToken);
             console.log(tempToken); 
             alert('SUCCESS');
             window.location.replace("main.html");

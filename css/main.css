@@ -71,7 +71,7 @@ body, html {
 /*---------------------------------------------*/
 a {
 	font-family: Poppins-Regular;
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 1.7;
 	color: #666666;
 	margin: 0px;
@@ -757,40 +757,35 @@ tbody tr:hover {
 }
 
 .column1 {
-  width: 180px;
+  width: 200px;
   padding-left: 40px;
 }
 
 .column2 {
-  width: 150px;
+  width: 50px;
   padding-left: 20px;
 
 }
 
 .column3 {
-  width: 320px;
+  width: 200px;
 }
 
 .column4 {
-  width: 150px;
+  width: 200px;
 }
 
 .column5 {
-  width: 150px;
+  width: 100px;
 }
 
 .column6 {
   width: 100px;
-  text-align: right;
   padding-right: 40px;
 }
 
-.column7 {
-  width: 222px;
-  text-align: right;
-}
 
-
+/*
 @media screen and (max-width: 992px) {
   table {
     display: block;
@@ -823,7 +818,7 @@ tbody tr:hover {
     left: 30px;
     top: 0;
   }
-  /* User Table Responsive */
+  /* User Table Responsive *//*
   table tbody tr td:nth-child(1):before {
     content: "User ID";
   }
@@ -852,63 +847,6 @@ tbody tr:hover {
     content: "CreatedAt";
   }
 
-  /* Transaction Table Responsive */  /* **not work** */
-  table tbody tr tdT:nth-child(1):before {
-    content: "###";
-  }
-  table tbody tr tdT:nth-child(2):before {
-    content: "###";
-  }
-  table tbody tr tdT:nth-child(3):before {
-    content: "###";
-  }
-  table tbody tr tdT:nth-child(4):before {
-    content: "###";
-  }
-  table tbody tr tdT:nth-child(5):before {
-    content: "###";
-  }
-  table tbody tr tdT:nth-child(6):before {
-    content: "###";
-  }
-  table tbody tr tdT:nth-child(7):before {
-    content: "###";
-  }
-  table tbody tr tdT:nth-child(8):before {
-    content: "###";
-  }
-  table tbody tr tdT:nth-child(9):before {
-    content: "###";
-  }
-
-  /* Request Table Responsive */  /* **not work** */
-  table tbody tr tdR:nth-child(1):before {
-    content: "###";
-  }
-  table tbody tr tdR:nth-child(2):before {
-    content: "###";
-  }
-  table tbody tr tdR:nth-child(3):before {
-    content: "###";
-  }
-  table tbody tr tdR:nth-child(4):before {
-    content: "###";
-  }
-  table tbody tr tdR:nth-child(5):before {
-    content: "###";
-  }
-  table tbody tr tdR:nth-child(6):before {
-    content: "###";
-  }
-  table tbody tr tdR:nth-child(7):before {
-    content: "###";
-  }
-  table tbody tr tdR:nth-child(8):before {
-    content: "###";
-  }
-  table tbody tr tdR:nth-child(9):before {
-    content: "###";
-  }
 
   .column4,
   .column5,
@@ -930,7 +868,7 @@ tbody tr:hover {
   tbody tr {
     font-size: 14px;
   }
-} 
+} */
 
 @media (max-width: 576px) {
   .container-table100 {
@@ -954,6 +892,7 @@ tbody tr:hover {
 
 .column3_std {
   width: 150px;
+  padding-left: 10px;
 }
 
 .column4_std {
@@ -973,11 +912,15 @@ tbody tr:hover {
 }
 
 .column8_std {
-  width: 110px;
+  width: 90px;
 }
 
 .column9_std {
-  width: 230px;
+  width: 90px;
+}
+
+.column10_std {
+  width: 250px;
   padding-right: 30px;
 }
 
@@ -987,33 +930,41 @@ tbody tr:hover {
 
 .column1_merc {
   width: 110px;
-  padding-left: 40px;
+  padding-left: 30px;
 }
 
 .column2_merc {
-  width: 300px;
-  padding-left: 20px;
-
+  width: 110px;
 }
 
 .column3_merc {
-  width: 110px;
+  width: 150px
 }
 
 .column4_merc {
-  width: 110px;
+  width: 150px;
 }
 
 .column5_merc {
-  width: 110px;
-  padding-right: 20px;
+  width: 250px;
 }
 
 .column6_merc {
-  width: 100px;
-  padding-right: 20px;
-  text-align: left;
+  width: 230px;
+}
 
+.column7_merc {
+  width: 120px;
+  padding-right: 1px;
+}
+
+.column8_merc {
+  width: 50px;
+}
+
+.column9_merc {
+  width: 230px;
+  padding-right: 30px;
 }
 /*//////////////////////////////////////////////////////////////////
 [ Table Request Merchant]*/
@@ -1043,8 +994,10 @@ tbody tr:hover {
 }
 
 .column6_req {
+  width: 110px;
+}
+
+.column7_req {
   width: 100px;
   padding-right: 20px;
-  text-align: left;
-
 }
