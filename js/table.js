@@ -33,8 +33,8 @@ function merchantTable(){
     var str;
     tempToken = localStorage.getItem("token");
     console.log(tempToken);
-    //axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/getAllMerchantData")
-    axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/getMerchantData",{'headers':{'Authorization':'Bearer ' + tempToken}})
+    axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/getAllMerchantData")
+    //axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/getMerchantData",{'headers':{'Authorization':'Bearer ' + tempToken}})
     .then ((res => {
         str = res.data;
         console.log(str); 
@@ -43,7 +43,7 @@ function merchantTable(){
             HTML += "<td class=\"column2_merc\">"+str[i].handle+"</td>";
             HTML += "<td class=\"column3_merc\">"+str[i].email+"</td>";
             HTML += "<td class=\"column4_merc\">"+str[i].storeName+"</td>";
-            HTML += "<td class=\"column5_merc\">"+str[i].ownerName+"</td>";
+            HTML += "<td class=\"column5_merc\">"+str[i].ownerName+" "+str[i].ownerLastname+"</td>";
             HTML += "<td class=\"column6_merc\">"+str[i].phone+"</td>";
             HTML += "<td class=\"column7_merc\">"+str[i].total+"</td>";
             HTML += "<td class=\"column8_merc\"> <a href = \""+str[i].imageUrl+"\" target=\"_blank\">"+"Click"+"</td>";
@@ -73,7 +73,7 @@ function requestTable(){
             HTML += "<td class=\"column3_std\">"+str[i]+"</td>";
             HTML += "<td class=\"column4_std\">"+str[i]+"</td>";
             HTML += "<td class=\"column5_std\">"+str[i]+"</td>";
-            HTML += "<td class=\"column6_std\"  onclick = \"getConfirmation();\">Confirm</td>";
+            HTML += "<td class=\"column6_std\"  onclick = \"getConfirmation('"+str[i].asdasd+"');\">Confirm</td>";
             HTML += "<td class=\"column7_std\">"+str[i]+"</td>";
             HTML += "</tr>";
         }
@@ -97,7 +97,7 @@ function transTable(){
             HTML += "<td class=\"column3\">"+str[i].from+"</td>";
             HTML += "<td class=\"column4\">"+str[i].to+"</td>";
             HTML += "<td class=\"column5\">"+str[i].amount+"</td>";
-            HTML += "<td class=\"column6\">"+str[i]+"</td>";
+            HTML += "<td class=\"column6\">"+str[i].info+"</td>";
             HTML += "</tr>";
         }
         document.getElementById("transTableClick").innerHTML = HTML;
@@ -105,10 +105,12 @@ function transTable(){
     .catch(error => alert(error));
 }
 
-function getConfirmation() {
+function getConfirmation(id) {
+    console.log(id);
     var retVal = confirm("Do you want to continue ?");
     if( retVal == true ) {
        //document.write ("User wants to continue!");
+       axios.post("####");
        return true;
     } else {
        //document.write ("User does not want to continue!");
