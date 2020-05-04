@@ -1018,6 +1018,7 @@ tbody tr:hover {
 .column1_pin {
   width: 80px;
   padding-left: 40px;
+  padding-right: 40px;
 }
 .column2_pin {
   width: 220px;
@@ -1031,6 +1032,27 @@ tbody tr:hover {
 }
 .column5_pin {
   width: 200px;
+}
+/*//////////////////////////////////////////////////////////////////
+[ Promo Table ]*/
+.column1_promo {
+  width: 80px;
+  padding-left: 40px;
+}
+.column2_promo {
+  width: 250px;
+}
+.column3_promo {
+  width: 250px;
+  
+}
+.column4_promo {
+  width: 300px;
+  padding-top: 10px;
+  padding-right: 30px;
+}
+.column5_promo {
+  width: 220px;
 }
 /*//////////////////////////////////////////////////////////////////
 [ generate page ]*/
@@ -1047,6 +1069,19 @@ tbody tr:hover {
   line-height: 1.4;
   color: #FFFFFF;
   padding: 300px 30px;
+}
+.txt5 {
+  font-family: Sukhumvit-Medium;
+  font-size: 18px;
+  line-height: 1.4;
+  color: #000000;
+}
+.txt6 {
+  font-family: Sukhumvit-Medium;
+  font-size: 22px;
+  line-height: 1.4;
+  color: #FFFFFF;
+  padding-top: 20px;
 }
 
 /* Dropdown Button */

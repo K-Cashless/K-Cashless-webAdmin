@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Merchant Information K-Cashless Management System</title>
+	<title>Promotions History K-Cashless Management System</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--===============================================================================================-->
@@ -27,7 +27,8 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<!--===============================================================================================-->
-	<!-- Navigation bar-->
+
+	<!-- CSS Navigation bar-->
 	<link rel="stylesheet" href="css/styles.css">
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 	<script src="../cssmenu/script.js"></script>
@@ -36,6 +37,7 @@
 </head>
 
 <body style="background-color: #666666;">
+
 	<!--  Navigation bar -->
 	<div id='cssmenu'>
 		<ul>
@@ -50,9 +52,56 @@
 		</ul>
 	</div>
 	<!--  //Navigation bar -->
-	Promotions Testtesttest
+	
+	<!--  Add promo section -->
+	<div class="txt3">
+		Add Promotion <br><br>
+		<form>
+			<label for="promoHeader" class="txt6">Header: </label>
+			<textarea id="promoHeader" name="promoHeader" cols="50" rows="1" class="txt5"></textarea>
+			<label for="promoDura" class="txt6">Duration: </label>
+			<textarea id="promoDura" name="promoDura" cols="50" rows="1" class="txt5"></textarea>
+			<label for="promoDescptn" class="txt6">Promotion Description: </label>
+			<textarea id="promoDescptn" name="promoDescptn" cols="50" rows="10" class="txt5"></textarea><br>			
+		</form>
+		<span class="dropdown">
+			<button onclick="addPromo()" class="dropbtn">Add Promotion</button>
+		</span>
+	</div>
+		
+	<!--  table promo section -->
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wraptableUser">
+				<div class="table100">
+					<span class="page-title p-b-43" onclick="promoTable()">
+						Promotions History
+					</span>
+					<table>
+						<thead>
+							<tr class="table100-head">
+								<th class="column1_promo">No.</th>
+								<th class="column2_promo">Header</th>
+								<th class="column3_promo">Duration</th>
+								<th class="column4_promo">Description</th>
+								<th class="column5_promo">Post Date</th>
 
-
+							</tr>
+						</thead>
+						<tbody id="promoTableClick">					
+								<!-- <tr>
+									<td class="column1_promo">1</td>
+									<td class="column2_promo">Merchant01</td>
+									<td class="column3_promo">Administrator001 (999999)</td>
+									<td class="column4_promo">Merchant001</td>
+									<td class="column5_promo">$999.00</td>
+								</tr> -->
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -70,8 +119,11 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 	<!--===============================================================================================-->
 	<script src="js/main.js"></script>
+	<script src="js/table.js"></script>
+	<script src="node_modules/axios/dist/axios.min.js"></script>
+	<script src="js/var.js"></script>
 	<script src="js/logout.js"></script>
+	<script src="js/promo.js"></script>
 
 </body>
-
 </html>

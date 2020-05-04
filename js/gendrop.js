@@ -25,19 +25,25 @@ function dropClick(abc) {
 
 function getPinConfirmation() {
   var idP = (document.getElementById("amt").innerHTML);
+  var num = (document.getElementById("num").value);
   console.log(idP);
+  console.log(num);
+  if ((idP == "Value") || (num == "")) {
+    alert('Please define a value and number.');
+    return false;
+  }
   var retVal = confirm("Do you want to continue ?");
   if (retVal == true) {
     //document.write ("User wants to continue!");
-    if (idP == "Value") {
-      return false;
-    }
     //axios.post("https://asia-east2-k-cash-less.cloudfunctions.net/api/merchant/")",{handle:idP})
-    axios.post("####", { handle: idP })
+    axios.post("https://asia-east2-k-cash-less.cloudfunctions.net/api/admin/generatePrepaidCard",{value:idP,number:num})
       .then((res => {
         console.log(res);
       }))
-      .catch(error => alert(error));
+      .catch(error => {
+        console.log(error.response);
+        alert(error);
+      });
     return true;
   } else {
     //document.write ("User does not want to continue!");

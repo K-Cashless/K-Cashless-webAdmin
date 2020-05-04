@@ -108,21 +108,21 @@ function transTable() {
 function pinTable() {
     var HTML = "<tr>";
     var str;
-
-    axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/getAllTransactions")
-        //axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/getAllTransactions",{'headers':{'Authorization':'Bearer ' + tempToken}})
+        axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/admin/getAllPrepaidCard")
+        //axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/admin/getAllPrepaidCard",{'headers':{'Authorization':'Bearer ' + tempToken}})
         .then((res => {
             str = res.data;
-            console.log(str);
+            //console.log(str);
             for (i = 0; i < str.length; i++) {
-                HTML += "<td class=\"column1\">" + str[i] + "</td>";
-                HTML += "<td class=\"column2\">" + str[i] + "</td>";
-                HTML += "<td class=\"column3\">" + str[i] + "</td>";
-                HTML += "<td class=\"column4\">" + str[i] + "</td>";
-                HTML += "<td class=\"column5\">" + str[i] + "</td>";
+                const link = "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl={&quot;cardId&quot;:&quot;" + str[i].pincode + "&quot;,&quot;number&quot;:&quot;" + str[i].number+ "&quot;,&quot;value&quot;:" + str[i].value + "}&choe=UTF-8";
+                HTML += "<td class=\"column1_pin\">" + str[i].number + "</td>";
+                HTML += "<td class=\"column2_pin\"><a href=\""+ link + "\">" + str[i].pincode + "</td>";
+                HTML += "<td class=\"column3_pin\">" + str[i].value + "</td>";
+                HTML += "<td class=\"column4_pin\">" + str[i].used + "</td>";
+                HTML += "<td class=\"column5_pin\">" + str[i].whoUsed + "</td>";
                 HTML += "</tr>";
             }
-            document.getElementById("transTableClick").innerHTML = HTML;
+            document.getElementById("pinTableClick").innerHTML = HTML;
         }))
         .catch(error => alert(error));
 }
@@ -143,4 +143,25 @@ function getConfirmation(id) {
         return false;
     }
     //https://www.tutorialspoint.com/javascript/javascript_dialog_boxes.htm
+}
+
+function promoTable() {
+    var HTML = "<tr>";
+    var str;
+        axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/getAllPromotions")
+        //axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/getAllPromotions",{'headers':{'Authorization':'Bearer ' + tempToken}})
+        .then((res => {
+            str = res.data;
+            //console.log(str);
+            for (i = 0; i < str.length; i++) {
+                HTML += "<td class=\"column1_promo\">" + i + "</td>";
+                HTML += "<td class=\"column2_promo\">" + str[i].header + "</td>";
+                HTML += "<td class=\"column3_promo\">" + str[i].duration + "</td>";
+                HTML += "<td class=\"column4_promo\">" + str[i].description + "</td>";
+                HTML += "<td class=\"column5_promo\">" + str[i].createdAt + "</td>";
+                HTML += "</tr>";
+            }
+            document.getElementById("promoTableClick").innerHTML = HTML;
+        }))
+        .catch(error => alert(error));
 }
