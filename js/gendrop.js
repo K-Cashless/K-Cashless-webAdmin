@@ -34,9 +34,10 @@ function getPinConfirmation() {
   }
   var retVal = confirm("Do you want to continue ?");
   if (retVal == true) {
+    tempToken = localStorage.getItem("token");
     //document.write ("User wants to continue!");
     //axios.post("https://asia-east2-k-cash-less.cloudfunctions.net/api/merchant/")",{handle:idP})
-    axios.post("https://asia-east2-k-cash-less.cloudfunctions.net/api/admin/generatePrepaidCard",{value:idP,number:num})
+    axios.post("https://asia-east2-k-cash-less.cloudfunctions.net/api/admin/generatePrepaidCard",{value:idP,number:num},{ 'headers': { 'Authorization': 'Admin ' + tempToken } })
       .then((res => {
         console.log(res);
       }))

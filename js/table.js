@@ -4,7 +4,7 @@ function userTable() {
     tempToken = localStorage.getItem("token");
     console.log(tempToken);
     //axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/getAllUserData")
-    axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/getUserData", { 'headers': { 'Authorization': 'Bearer ' + tempToken } })
+    axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/getAllUserData", { 'headers': { 'Authorization': 'Admin ' + tempToken } })
         .then((res => {
             str = res.data;
             console.log(str);
@@ -24,6 +24,7 @@ function userTable() {
             document.getElementById("userTableClick").innerHTML = HTML;
         }))
         .catch(error => {
+            alert(error);
             console.log(error.response);
         });
 }
@@ -33,7 +34,7 @@ function merchantTable() {
     var str;
     tempToken = localStorage.getItem("token");
     console.log(tempToken);
-    axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/getAllMerchantData")
+    axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/getAllMerchantData", { 'headers': { 'Authorization': 'Admin ' + tempToken } })
         //axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/getMerchantData",{'headers':{'Authorization':'Bearer ' + tempToken}})
         .then((res => {
             str = res.data;
@@ -43,7 +44,7 @@ function merchantTable() {
                 HTML += "<td class=\"column2_merc\">" + str[i].handle + "</td>";
                 HTML += "<td class=\"column3_merc\">" + str[i].email + "</td>";
                 HTML += "<td class=\"column4_merc\">" + str[i].storeName + "</td>";
-                HTML += "<td class=\"column5_merc\">" + str[i].ownerName + " " + str[i].ownerLastname + "</td>";
+                HTML += "<td class=\"column5_merc\">" + str[i].ownerName + "</td>";
                 HTML += "<td class=\"column6_merc\">" + str[i].phone + "</td>";
                 HTML += "<td class=\"column7_merc\">" + str[i].total + "</td>";
                 HTML += "<td class=\"column8_merc\"> <a href = \"" + str[i].imageUrl + "\" target=\"_blank\">" + "Click" + "</td>";
@@ -62,7 +63,7 @@ function requestTable() {
     var HTML = "<tr>";
     var str;
     tempToken = localStorage.getItem("token");
-    axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/merchant/getRequest")
+    axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/merchant/getRequest", { 'headers': { 'Authorization': 'Admin ' + tempToken } })
         //axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/getMerchantData",{'headers':{'Authorization':'Bearer ' + tempToken}})
         //axios.get("######",{'headers':{'Authorization':'Bearer ' + tempToken}})
         .then((res => {
@@ -70,11 +71,9 @@ function requestTable() {
             for (i = 0; i < str.length; i++) {
                 HTML += "<td class=\"column1_req\">M" + str[i].handle + "</td>";
                 HTML += "<td class=\"column2_req\">" + str[i].requestedAt + "</td>";
-                HTML += "<td class=\"column3_req\">" + str[i] + "</td>";
-                HTML += "<td class=\"column4_req\">" + str[i] + "</td>";
-                HTML += "<td class=\"column5_req\">" + str[i].amount + " </td>";
-                HTML += "<td class=\"column6_req\"  onclick = \"getConfirmation('" + str[i].handle + "');\">Confirm</td>";
-                HTML += "<td class=\"column7_req\">" + str[i].status + "</td>";
+                HTML += "<td class=\"column3_req\">" + str[i].amount + " </td>";
+                HTML += "<td class=\"column4_req\"  onclick = \"getConfirmation('" + str[i].handle + "');\">Confirm</td>";
+                HTML += "<td class=\"column5_req\">" + str[i].status + "</td>";
                 HTML += "</tr>";
             }
             document.getElementById("requestTableClick").innerHTML = HTML;
@@ -85,8 +84,8 @@ function requestTable() {
 function transTable() {
     var HTML = "<tr>";
     var str;
-
-    axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/getAllTransactions")
+    tempToken = localStorage.getItem("token");
+    axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/getAllTransactions", { 'headers': { 'Authorization': 'Admin ' + tempToken } })
         //axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/getAllTransactions",{'headers':{'Authorization':'Bearer ' + tempToken}})
         .then((res => {
             str = res.data;
@@ -97,7 +96,6 @@ function transTable() {
                 HTML += "<td class=\"column3\">" + str[i].from + "</td>";
                 HTML += "<td class=\"column4\">" + str[i].to + "</td>";
                 HTML += "<td class=\"column5\">" + str[i].amount + "</td>";
-                HTML += "<td class=\"column6\">" + str[i].info + "</td>";
                 HTML += "</tr>";
             }
             document.getElementById("transTableClick").innerHTML = HTML;
@@ -108,7 +106,8 @@ function transTable() {
 function pinTable() {
     var HTML = "<tr>";
     var str;
-        axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/admin/getAllPrepaidCard")
+    tempToken = localStorage.getItem("token");
+        axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/admin/getAllPrepaidCard", { 'headers': { 'Authorization': 'Admin ' + tempToken } })
         //axios.get("https://asia-east2-k-cash-less.cloudfunctions.net/api/admin/getAllPrepaidCard",{'headers':{'Authorization':'Bearer ' + tempToken}})
         .then((res => {
             str = res.data;
@@ -116,7 +115,7 @@ function pinTable() {
             for (i = 0; i < str.length; i++) {
                 const link = "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl={&quot;cardId&quot;:&quot;" + str[i].pincode + "&quot;,&quot;number&quot;:&quot;" + str[i].number+ "&quot;,&quot;value&quot;:" + str[i].value + "}&choe=UTF-8";
                 HTML += "<td class=\"column1_pin\">" + str[i].number + "</td>";
-                HTML += "<td class=\"column2_pin\"><a href=\""+ link + "\">" + str[i].pincode + "</td>";
+                HTML += "<td class=\"column2_pin\"><a href=\""+ link + "\"target=\"_blank\">" + str[i].pincode + "</td>";
                 HTML += "<td class=\"column3_pin\">" + str[i].value + "</td>";
                 HTML += "<td class=\"column4_pin\">" + str[i].used + "</td>";
                 HTML += "<td class=\"column5_pin\">" + str[i].whoUsed + "</td>";
@@ -131,8 +130,9 @@ function getConfirmation(id) {
     console.log(id);
     var retVal = confirm("Do you want to continue ?");
     if (retVal == true) {
+        tempToken = localStorage.getItem("token");
         //document.write ("User wants to continue!");
-        axios.post("https://asia-east2-k-cash-less.cloudfunctions.net/api/merchant/acceptRequest", { handle: id })
+        axios.post("https://asia-east2-k-cash-less.cloudfunctions.net/api/merchant/acceptRequest", { handle: id },{ 'headers': { 'Authorization': 'Admin ' + tempToken } })
             .then((res => {
                 console.log(res);
             }))

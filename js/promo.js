@@ -11,7 +11,8 @@ function addPromo() {
       }
     var retVal = confirm("Do you want to continue ?");
     if (retVal == true) {
-      axios.post("https://asia-east2-k-cash-less.cloudfunctions.net/api/admin/createPromotion", { header: header, description:des, duration:duration })
+      tempToken = localStorage.getItem("token");
+      axios.post("https://asia-east2-k-cash-less.cloudfunctions.net/api/admin/createPromotion", { header: header, description:des, duration:duration },{ 'headers': { 'Authorization': 'Admin ' + tempToken } })
         .then((res => {
         console.log(res);
         document.getElementById("promoHeader").value = "";
